@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net6.0-windows10.0.26100.0</TargetFramework>
     <OutputType>Exe</OutputType>
     <RootNamespace>com.gpfcomics.WinHasher.hashconsole</RootNamespace>
     <ApplicationIcon>Icon1.ico</ApplicationIcon>
@@ -20,6 +20,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="Icon1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="BouncyCastle.Cryptography" Version="2.3.1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WinHasherCore\WinHasherCore.csproj" />
