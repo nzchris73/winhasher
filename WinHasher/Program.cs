@@ -3,7 +3,7 @@
  * PROGRAMMER:    Jeffrey T. Darlington
  * DATE:          August 31, 2007
  * PROJECT:       WinHasher GUI application
- * .NET VERSION:  2.0
+ * .NET VERSION:  10.0
  * REQUIRES:      com.gpfcomics.WinHasher.Core
  * REQUIRED BY:   (None)
  * 
@@ -39,6 +39,8 @@
  * 
  * UPDATED June 29, 2015 (1.7):  Updates for Bouncy Castle conversion as well as to enable
  * "portable" mode
+ * 
+ * UPDATED August 30 2026 (1.8):  Upgraded to .NET 10. Updated Bouncy Castle to 2.7.0.
  * 
  * This program is Copyright 2015, Jeffrey T. Darlington.
  * E-mail:  jeff@gpf-comics.com
