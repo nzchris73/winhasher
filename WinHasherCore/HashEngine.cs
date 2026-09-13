@@ -244,7 +244,9 @@ namespace com.gpfcomics.WinHasher.Core
                 fs = File.Open(filename, FileMode.Open, FileAccess.Read);
                 if (fs.Length < 0L)
                     throw new HashEngineException("The total amount of data to hash is too large. The total amount of data hashed cannot exceed 8.05EB (exabytes).");
+#pragma warning disable CA1416
                 fs.Lock(0, fs.Length);
+#pragma warning restore CA1416
 
                 // For multi-file comparisons, we want to know the total number of bytes in all the
                 // files that need to be hashed.  That is passed in here as the total byte length.
@@ -316,7 +318,9 @@ namespace com.gpfcomics.WinHasher.Core
 
                 // If we broke out of the loop, grab the final hash value and unlock and close the file:
                 hasher.DoFinal(theHash, 0);
+#pragma warning disable CA1416
                 fs.Unlock(0, fs.Length);
+#pragma warning restore CA1416
                 fs.Close();
                 fs = null; // The finaly will do it for us
 
@@ -375,9 +379,9 @@ namespace com.gpfcomics.WinHasher.Core
                 throw new HashEngineException("The Federal Information Processing Standards (FIPS) security setting is enabled on your system. The hash algorithm you selected is not available.");
             }
             // Re-throw any HashEngineExceptions that may have been thrown upstream:
-            catch (HashEngineException hee)
+            catch (HashEngineException)
             {
-                throw hee;
+                throw;
             }
             // Finally, a catch-all to catch all exceptions that haven't already been caught:
             catch (CryptographicUnexpectedOperationException)
@@ -398,7 +402,9 @@ namespace com.gpfcomics.WinHasher.Core
                 {
                     try
                     {
+#pragma warning disable CA1416
                         fs.Unlock(0, fs.Length);
+#pragma warning restore CA1416
                         fs.Close();
                     }
                     catch { }

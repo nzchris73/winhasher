@@ -1058,7 +1058,7 @@ namespace com.gpfcomics.WinHasher
                 // that, however, we'll need to look at the value of the Version registry entry to see
                 // which version last updated the registry settings.  Note that we don *NOT* look at the
                 // current version of the running code, which won't help us in this case.
-                Version v1_7 = new("1.7.0.0");
+                Version v1_8 = new("1.8.0.0");
 
                 // Get the version of the app that last wrote to the registry.  To do that, we'll need to
                 // open our registry values first.  Note that unlike the MainForm_FormClosing() method above,
@@ -1086,7 +1086,7 @@ namespace com.gpfcomics.WinHasher
                         // we'll convert the index-based registry keys for both the hash and output type to
                         // a string, which will make things easier to deal with if the order of the hashes
                         // moves around in the future.
-                        if (current < v1_7)
+                        if (current < v1_8)
                         {
                             winHasherSettings = GPFComics.OpenSubKey("WinHasher", true);
                             if (winHasherSettings != null)
